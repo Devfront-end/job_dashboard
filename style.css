@@ -308,3 +308,37 @@ footer {
         font-size: 0.8em; /* Slightly smaller text for the bottom footer on small screens */
     }
 }
+
+.carousel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* This centers the content horizontally */
+    text-align: left;
+}
+
+.carousel-image {
+    flex: 1; /* Allows the image to grow and take up space as needed */
+    max-width: 50%; /* Limit image width to half of the container */
+}
+
+.carousel-caption-container {
+    flex: 1; /* Allows the caption to grow and take up space as needed */
+    max-width: 50%; /* Limit caption width to half of the container */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.carousel-image img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        flex-direction: column; /* Stack the image and caption on top of each other for mobile */
+    }
+
+    .carousel-image,
+    .carousel-caption-container {
+        max-width: 100%; /* Allow image and caption to take full width on small screens */
+    }
+}
