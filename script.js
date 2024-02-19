@@ -1,54 +1,93 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // This event listener ensures that the script runs after the DOM is fully loaded
-
-    // Get the job posting form by its ID
+    // Handle the job posting form submission
     const jobForm = document.getElementById('post-job-form');
-    
-    // Add an event listener to the job form to intercept the submit event
     if (jobForm) {
-        jobForm.addEventListener('submit', (event) => {
-            event.preventDefault();  // Prevent the default form submission behavior
-            alert('Job posted!');  // Show a placeholder alert for demonstration
-            // Here you would include logic to actually handle the job posting,
-            // such as sending the form data to a server or API
-        });
+        jobForm.addEventListener('submit', handleJobFormSubmit);
     }
 
-    // Get the contact form by its ID
+    // Handle the contact form submission
     const contactForm = document.getElementById('contact-form');
-    
-    // Add an event listener to the contact form to intercept the submit event
     if (contactForm) {
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();  // Prevent the default form submission behavior
-            alert('Message sent!');  // Show a placeholder alert for demonstration
-            // Here you would include logic to actually handle the contact message,
-            // such as sending the form data to a server or API
-        });
+        contactForm.addEventListener('submit', handleContactFormSubmit);
     }
 
-    // You can add more JavaScript interactions below as needed
-    // This could include event listeners for other forms, buttons, or dynamic elements
+    // Initialize carousel functionality
+    initCarousel();
 });
 
+function handleJobFormSubmit(event) {
+    event.preventDefault();
+    alert('Job posted!');
+    // Additional job form handling logic...
+}
+
+function handleContactFormSubmit(event) {
+    event.preventDefault();
+
+    var name = document.getElementById('contact-name').value.trim();
+    var email = document.getElementById('contact-email').value.trim();
+    var message = document.getElementById('contact-message').value.trim();
+
+    if (!name || !email || !message) {
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    alert('Thank you for your message! We will get back to you soon.');
+    // Reset the form after handling
+    event.target.reset();
+}
+
+function initCarousel() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".carousel-item");
+    const totalSlides = slides.length;
+
+    // Show the first slide
+    slides[currentSlide].style.display = "block";
+
+    // Setup event listeners for next/prev buttons
+    document.querySelector(".next").addEventListener("click", () => {
+        slides[currentSlide].style.display = "none";
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].style.display = "block";
+    });
+
+    document.querySelector(".prev").addEventListener("click", () => {
+        slides[currentSlide].style.display = "none";
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        slides[currentSlide].style.display = "block";
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        var name = document.getElementById('name').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var message = document.getElementById('message').value.trim();
-
+    const contactForm = document.getElementById('contact-form');
+    
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+        
         if (!name || !email || !message) {
             alert('Please fill out all fields.');
             return;
         }
+        
+        // Here, you would handle the form submission (e.g., using AJAX to send data to the server)
+        alert('Thank you for contacting us!');
 
-        // Add your AJAX request or form submission logic here
-        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset(); // Reset the form after submission
+    });
+});
 
-        // Reset the form after handling
-        this.reset();
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
     });
 });
 
