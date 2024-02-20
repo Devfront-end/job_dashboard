@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Job Board</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
     <header>
         <nav>
             <ul class="nav-links">
@@ -23,10 +22,36 @@
         </nav>
     </header>
     
+
+    <!-- Modale pour l'inscription -->
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="signInForm">
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale pour la connexion -->
+    <div id="logInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="logInForm">
+                <input type="email" placeholder="Enter Email" name="email" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reste du contenu principal ici -->
     <main>
-        <h1>About Us</h1>
-        <!-- Information about the company or website -->
+        <!-- Contenu spécifique à la page -->
     </main>
+
     <footer role="contentinfo">
         <div class="footer-container">
             <section class="footer-section">
@@ -57,5 +82,4 @@
 
     <script src="scripts.js"></script>
 </body>
-
 </html>

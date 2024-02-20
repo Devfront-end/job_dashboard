@@ -69,50 +69,46 @@ button:hover {
     background-color: #4cae4c;
 }
 
-/* Carousel */
-.carousel {
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 10px;
-}
-
-.carousel-inner {
+/* Hero Section */
+.hero-section {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.carousel-item {
-    display: none; /* Hide all items */
-    flex: 0 0 100%;
-    transition: transform 0.5s ease;
-}
-
-.carousel-item.active {
-    display: block; /* Show active item */
-}
-
-.carousel-item img {
-    width: 100%;
+.hero-image img {
+    max-width: 50%;
     height: auto;
-    display: block;
 }
 
-.carousel-control {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    display: none; /* Initially hide, shown in JavaScript */
+.hero-content {
+    flex: 1;
+    padding: 0 20px;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+/* If you want the text to not be too wide on larger screens */
+.hero-content {
+    max-width: 640px; /* or any other max-width you prefer */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        margin-bottom: 20px; /* Add some space between the image and text */
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+}
 
 /* Contact Container */
 .contact-container, #contact-form-container {
@@ -168,10 +164,6 @@ button:hover {
         flex-direction: column;
         gap: 10px;
     }
-
-    .carousel-control {
-        display: block; /* Show navigation buttons on larger screens */
-    }
 }
 
 /* Job Listings */
@@ -217,6 +209,10 @@ footer {
     color: #fff;
 }
 
+.footer-section a:hover {
+    color: #f0f0f0; /* Lighten link color on hover */
+}
+
 .footer-bottom {
     text-align: center;
     border-top: 1px solid #444;
@@ -224,7 +220,7 @@ footer {
     margin-top: 1em;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for Footer */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -252,7 +248,7 @@ footer {
 .footer-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Center footer content and provide spacing */
+    justify-content: space-between; /* Center footer content and provide spacing */
     max-width: 1200px; /* Maximum width of the footer container */
     margin: auto; /* Center the container */
     padding: 0 1em; /* Padding on the sides */
@@ -288,8 +284,8 @@ footer {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 1em; /* Space above the bottom text */
     border-top: 1px solid #444; /* Add a top border for visual separation */
+    padding-top: 1em; /* Space above the bottom text */
     margin-top: 1em; /* Space from the content above */
 }
 
@@ -302,43 +298,228 @@ footer {
 
     .footer-section {
         text-align: center; /* Center-align text for small screens */
+        margin: 0.5em 0; /* Adjust margin for stacked layout */
     }
 
     .footer-bottom {
         font-size: 0.8em; /* Slightly smaller text for the bottom footer on small screens */
+        border-top: none; /* Remove the border top for a cleaner look */
     }
 }
 
-.carousel-item {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* This centers the content horizontally */
-    text-align: left;
+/* Top Priority/Most Searched Section */
+.search-section {
+    padding: 20px;
+    text-align: center;
 }
 
-.carousel-image {
-    flex: 1; /* Allows the image to grow and take up space as needed */
-    max-width: 50%; /* Limit image width to half of the container */
+.search-section input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%; /* Adjust as needed */
+    max-width: 600px; /* Adjust as needed */
 }
 
-.carousel-caption-container {
-    flex: 1; /* Allows the caption to grow and take up space as needed */
-    max-width: 50%; /* Limit caption width to half of the container */
-    padding: 20px; /* Add padding for spacing */
+/* Common Section Styles */
+section {
+    padding: 20px;
+    margin: 20px 0;
 }
 
-.carousel-image img {
-    width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain the aspect ratio */
+section h2 {
+    margin-bottom: 15px;
 }
 
+/* Featured Jobs, Employer Spotlights, etc. */
+.featured-jobs,
+.employer-spotlights,
+.testimonials,
+.employer-branding-tips,
+.job-seeker-resources,
+.industry-trends,
+.faqs,
+.blog {
+    /* Add common styles for these sections, e.g., background colors, padding, etc. */
+    background-color: #f8f8f8;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ensure responsiveness */
 @media (max-width: 768px) {
-    .carousel-item {
-        flex-direction: column; /* Stack the image and caption on top of each other for mobile */
+    .search-section input[type="text"] {
+        width: 100%;
     }
 
-    .carousel-image,
-    .carousel-caption-container {
-        max-width: 100%; /* Allow image and caption to take full width on small screens */
+    /* Stack sections vertically on small screens */
+    .hero-content,
+    .featured-jobs,
+    .employer-spotlights,
+    .testimonials,
+    .employer-branding-tips,
+    .job-seeker-resources,
+    .industry-trends,
+    .faqs,
+    .blog {
+        padding: 20px;
     }
 }
+
+/* Styles for authentication icons */
+.auth-icons a {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles for authentication icons */
+.auth-icons a {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal base styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Add some shadow */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
